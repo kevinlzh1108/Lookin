@@ -52,7 +52,7 @@ static NSString * const Key_BindingAppInfo = @"AppInfo";
     return [self sharedInstance];
 }
 
-- (NSString *)_updateMeasureButtonTitle:(BOOL)locked {
+- (NSString *)_updateMeasureButtonTitleWithLocked:(BOOL)locked {
     NSString *lockString = NSLocalizedString(@"Locked", nil);
     if (!locked) {
         lockString = NSLocalizedString(@"Unlocked", nil);
