@@ -77,7 +77,7 @@ static NSString * const Key_BindingAppInfo = @"AppInfo";
         [button lookin_bindObject:manager forKey:@"manager"];
         
         NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:LKToolBarIdentifier_Measure];
-        item.label = [self _updateMeasureButtonTitle:NO];
+        item.label = [self _updateMeasureButtonTitleWithLocked:NO];
         item.view = button;
         item.minSize = NSMakeSize(48, 34);
         self.measureItem = item;
@@ -325,7 +325,7 @@ static NSString * const Key_BindingAppInfo = @"AppInfo";
 - (void)_handleToggleMeasureButton:(NSButton *)button {
     LKPreferenceManager *manager = [button lookin_getBindObjectForKey:@"manager"];
     BOOL boolValue = ((button.state == NSControlStateValueOn) ? YES : NO);
-    self.measureItem.label = [self _updateMeasureButtonTitle:boolValue];
+    self.measureItem.label = [self _updateMeasureButtonTitleWithLocked:boolValue];
     [manager.isMeasurLock setBOOLValue:boolValue ignoreSubscriber:self];
     [manager.isMeasuring setBOOLValue:boolValue ignoreSubscriber:self];
 }
